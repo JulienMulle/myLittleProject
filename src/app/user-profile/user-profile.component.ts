@@ -1,5 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user = {
+  user: User = {
     name: 'Doe',
     firstName: 'John',
     age: 25,
@@ -15,7 +16,7 @@ export class UserProfileComponent implements OnInit {
     photo: 'https://randomuser.me/api/portraits/lego/2.jpg'
   }
   /*ngIf */
-  ageView = false;
+  ageView: boolean = false;
 
   /*condition pour afficher l'age*/
   viewAge()
