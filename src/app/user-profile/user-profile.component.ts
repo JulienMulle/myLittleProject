@@ -8,13 +8,9 @@ import { User } from '../user';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user: User = {
-    name: 'Doe',
-    firstName: 'John',
-    age: 25,
-    quote: '',
-    photo: 'https://randomuser.me/api/portraits/lego/2.jpg'
-  }
+  user: User = 
+    new User("Doe", "John", 30, "To be or not to be", 'https://randomuser.me/api/portraits/lego/2.jpg')
+  ;
   /*ngIf */
   ageView: boolean = false;
 
