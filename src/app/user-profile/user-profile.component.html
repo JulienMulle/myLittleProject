@@ -1,0 +1,20 @@
+<body>
+    <div class="cardContainer"> 
+        <div class="cardContainer-img">
+            <img  [src]="user.photo" alt="user picture">
+        </div>
+        <div class="cardContainer-info">
+            <div class="cardContainer-info-detail">
+                <h3>{{user.firstName}} {{user.name}}</h3>
+                <div class="information">
+                <p>{{user.quote}}</p>
+                <p>Age: <span *ngIf="ageView"> {{user.age}} </span></p>
+            </div>   
+            <div class="btn">
+            <input [(ngModel)]="user.quote" type="quote" name="quote" placeholder="two beer or not te beer" />
+            <button (click)=viewAge()>affichage</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
