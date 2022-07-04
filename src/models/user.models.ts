@@ -12,3 +12,4 @@ export class User {
         //this.photo = photo;
     }
   };
+  
