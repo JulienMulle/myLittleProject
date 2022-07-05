@@ -25,7 +25,7 @@ export class SearchMovieComponent implements OnInit {
       searchType: this.formBuilder.group(
         {
           film:[''],
-          serie:[''],
+          serie:['serie'],
           episode:['']
         }
       ),
