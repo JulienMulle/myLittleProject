@@ -1,4 +1,8 @@
-<form [formGroup]="searchMovieForm" (ngSubmit)="onSubmit()">
+<form 
+  [formGroup]="searchMovieForm" 
+  (ngSubmit)="myForm.valid && onSubmit()"
+  #myForm="ngForm"
+  >
   <div formGroupName="identity">
     <label>identifiant
       <input
@@ -12,6 +16,9 @@
         formControlName="title"
       >
     </label>
+    <div *ngIf="searchMovieForm.controls['identity'].errors && myForm.submitted">
+      <span *ngIf="searchMovieForm.controls['identity'].errors?.['isRequired']">il manque un titre ou un id</span>
+    </div>
   </div>
   <ul formGroupName="searchType">
     <li>
@@ -45,6 +52,9 @@
       formControlName="releaseDate"
       >
   </label>
+  <div *ngIf="searchMovieForm.controls['releaseDate']?.errors && myForm.submitted">
+    <span *ngIf="searchMovieForm.controls['releaseDate']?.errors?.['min']">Merci de selectionner la date à partir de {{minimumYear}}</span>
+  </div>
   <ul formGroupName="types">
     <li>
       <label>

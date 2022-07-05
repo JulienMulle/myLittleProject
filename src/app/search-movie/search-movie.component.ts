@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { isRequiredValidator } from '../validators/isRequired.validators';
+import { rangeDateValidator } from '../validators/rangeDate.validators';
 
 @Component({
   selector: 'app-search-movie',
@@ -8,13 +10,17 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SearchMovieComponent implements OnInit {
 
+  public minimumYear: number = 1900;
+  public maxmimumYear: number = 2022;
+
   searchMovieForm = this.formBuilder.group(
     {
       identity: this.formBuilder.group(
         {
           id:[''],
           title:['']
-        }
+        },
+        { validators: isRequiredValidator("id", "title")}
       ),
       searchType: this.formBuilder.group(
         {
@@ -23,7 +29,7 @@ export class SearchMovieComponent implements OnInit {
           episode:['']
         }
       ),
-      releaseDate:[''],
+      releaseDate:['', rangeDateValidator(this.minimumYear, this.maxmimumYear)],
       fiche: this.formBuilder.group(
         {
           complete:[''],
