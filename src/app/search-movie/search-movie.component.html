@@ -55,7 +55,7 @@
   <div *ngIf="searchMovieForm.controls['releaseDate']?.errors && myForm.submitted">
     <span *ngIf="searchMovieForm.controls['releaseDate']?.errors?.['min']">Merci de selectionner la date à partir de {{minimumYear}}</span>
   </div>
-  <ul formGroupName="types">
+  <ul formGroupName="fiche">
     <li>
       <label>complete
         <input 
